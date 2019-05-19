@@ -6,22 +6,29 @@
 /*   By: kbelov <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/18 14:50:31 by kbelov            #+#    #+#             */
-/*   Updated: 2019/05/18 15:37:48 by kbelov           ###   ########.fr       */
+/*   Updated: 2019/05/18 17:49:49 by abarnett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBUNIT_H
 # define LIBUNIT_H
 
-typedef struct			s_unit_test
+struct				s_node
 {
-	void				*name;
-	int					(*f)(void);
-	struct s_unit_test	*next;
-}						t_unit_test
+	const char		*name;
+	int				(*func)(void);
+	struct s_node	*next;
+};
 
-void					load_test(t_unit_test **testlist, const char *name,
-		int (*f)(void));
-int						launch_tests(t_unit_test **testlist);
+typedef struct		s_unit_test
+{
+	struct s_node	*first;
+	struct s_node	*last;
+}					t_unit_test;
+
+t_unit_test			*init(void);
+void				load_test(t_unit_test *tests, const char *name,
+						int (*func)(void));
+int					launch_tests(t_unit_test *tests);
 
 #endif
