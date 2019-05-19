@@ -6,7 +6,7 @@
 /*   By: abarnett <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/18 14:24:20 by abarnett          #+#    #+#             */
-/*   Updated: 2019/05/18 16:33:31 by abarnett         ###   ########.fr       */
+/*   Updated: 2019/05/18 17:49:17 by abarnett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 
 int		atoi_launcher(void)
 {
-	t_unit_test	*testlist;
+	t_unit_test	*tests;
 
-	testlist = 0;
+	tests = init();
 	ft_putstr("ATOI:\n");
-	load_test(&testlist, "Int Min", &int_min);
-	return (launch_tests(&testlist));
+	load_test(tests, "Int Min", &int_min);
+	return (launch_tests(tests));
 }
