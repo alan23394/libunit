@@ -6,7 +6,7 @@
 #    By: abarnett <alanbarnett328@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/17 14:22:04 by abarnett          #+#    #+#              #
-#    Updated: 2019/05/18 15:30:59 by abarnett         ###   ########.fr        #
+#    Updated: 2019/05/18 16:44:07 by abarnett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,8 @@
 
 # Name of output library
 NAME :=		libunit.a
+# Name of libft
+LIBFT :=	libft/libft.a
 
 # Base src directory
 SRC_DIR :=		./framework
@@ -35,17 +37,22 @@ C_OBJS :=	$(patsubst %.c,%.o,$(wildcard $(SRC_DIR)/*.c))
 
 .PHONY:		all
 
-all: $(NAME)
+all: $(LIBFT) $(NAME)
 	@- ctags -R 2> /dev/null
 
+$(LIBFT):
+	@ make -C libft
+
 $(NAME): $(C_OBJS)
-	@ ar rc $(NAME) $(C_OBJS)
-	@ ranlib $(NAME)
+	ar rc $(NAME) $(C_OBJS)
+	ranlib $(NAME)
 
 clean:
-	@ $(RM) $(OBJS)
+	@ $(RM) $(C_OBJS)
+	@ make -C libft clean
 
 fclean: clean
 	@ $(RM) $(NAME) tags
+	@ make -C libft fclean
 
 re: fclean all
