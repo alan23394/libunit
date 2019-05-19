@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_launcher.c                                      :+:      :+:    :+:   */
+/*   ft_print_matrix.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarnett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kbelov <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/18 14:24:20 by abarnett          #+#    #+#             */
-/*   Updated: 2019/05/18 18:27:01 by kbelov           ###   ########.fr       */
+/*   Created: 2019/04/05 23:02:53 by kbelov            #+#    #+#             */
+/*   Updated: 2019/04/07 00:21:37 by kbelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
-#include "atoi_tests.h"
-#include "ft_put.h"
+#include "libft.h"
 
-int		atoi_launcher(void)
+void		ft_print_matrix(char **matrix)
 {
-	t_unit_test	*tests;
+	int		y;
+	int		x;
 
-	tests = init();
-	ft_putstr("ATOI:\n");
-	load_test(tests, "Int Min", &int_min);
-	return (launch_tests(tests));
+	y = -1;
+	while (matrix[++y])
+	{
+		x = -1;
+		while (matrix[y][++x])
+			write(1, &matrix[y][x], 1);
+	}
+	write(1, "\n", 1);
 }

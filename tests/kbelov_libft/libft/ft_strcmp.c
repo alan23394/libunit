@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_launcher.c                                      :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarnett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kbelov <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/18 14:24:20 by abarnett          #+#    #+#             */
-/*   Updated: 2019/05/18 18:27:01 by kbelov           ###   ########.fr       */
+/*   Created: 2019/02/14 19:16:54 by kbelov            #+#    #+#             */
+/*   Updated: 2019/02/23 18:17:48 by kbelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
-#include "atoi_tests.h"
-#include "ft_put.h"
-
-int		atoi_launcher(void)
+int			ft_strcmp(const char *s1, const char *s2)
 {
-	t_unit_test	*tests;
-
-	tests = init();
-	ft_putstr("ATOI:\n");
-	load_test(tests, "Int Min", &int_min);
-	return (launch_tests(tests));
+	while (*s1 && *s2 && *s2 == *s1)
+	{
+		s1++;
+		s2++;
+	}
+	return ((unsigned char)*s1 - (unsigned char)*s2);
 }

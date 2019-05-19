@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_launcher.c                                      :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarnett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kbelov <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/18 14:24:20 by abarnett          #+#    #+#             */
-/*   Updated: 2019/05/18 18:27:01 by kbelov           ###   ########.fr       */
+/*   Created: 2019/02/17 15:03:30 by kbelov            #+#    #+#             */
+/*   Updated: 2019/02/17 15:41:46 by kbelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
-#include "atoi_tests.h"
-#include "ft_put.h"
-
-int		atoi_launcher(void)
+void		ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	t_unit_test	*tests;
+	unsigned int	i;
 
-	tests = init();
-	ft_putstr("ATOI:\n");
-	load_test(tests, "Int Min", &int_min);
-	return (launch_tests(tests));
+	i = 0;
+	if (s && f)
+	{
+		while (*s)
+			f(i++, s++);
+	}
 }

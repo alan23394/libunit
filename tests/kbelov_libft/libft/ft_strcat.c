@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_launcher.c                                      :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarnett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kbelov <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/18 14:24:20 by abarnett          #+#    #+#             */
-/*   Updated: 2019/05/18 18:27:01 by kbelov           ###   ########.fr       */
+/*   Created: 2019/02/15 14:01:02 by kbelov            #+#    #+#             */
+/*   Updated: 2019/02/15 15:08:21 by kbelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
-#include "atoi_tests.h"
-#include "ft_put.h"
-
-int		atoi_launcher(void)
+char	*ft_strcat(char *restrict s1, const char *restrict s2)
 {
-	t_unit_test	*tests;
+	int		i;
+	int		j;
 
-	tests = init();
-	ft_putstr("ATOI:\n");
-	load_test(tests, "Int Min", &int_min);
-	return (launch_tests(tests));
+	i = 0;
+	while (s1[i] != '\0')
+		i++;
+	j = 0;
+	while (s2[j] != '\0')
+	{
+		s1[i + j] = s2[j];
+		j++;
+	}
+	s1[i + j] = '\0';
+	return (s1);
 }

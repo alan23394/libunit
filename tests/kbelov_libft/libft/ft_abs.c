@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_launcher.c                                      :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarnett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kbelov <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/18 14:24:20 by abarnett          #+#    #+#             */
-/*   Updated: 2019/05/18 18:27:01 by kbelov           ###   ########.fr       */
+/*   Created: 2019/02/28 13:18:23 by kbelov            #+#    #+#             */
+/*   Updated: 2019/02/28 13:21:19 by kbelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
-#include "atoi_tests.h"
-#include "ft_put.h"
+#include "libft.h"
 
-int		atoi_launcher(void)
+int		ft_abs(int n)
 {
-	t_unit_test	*tests;
-
-	tests = init();
-	ft_putstr("ATOI:\n");
-	load_test(tests, "Int Min", &int_min);
-	return (launch_tests(tests));
+	if (n < 0)
+		n = -n;
+	return (n);
 }
