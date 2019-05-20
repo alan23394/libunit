@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   strlen_tests.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarnett <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/18 15:10:30 by abarnett          #+#    #+#             */
-/*   Updated: 2019/05/19 22:29:38 by abarnett         ###   ########.fr       */
+/*   Created: 2019/05/19 22:20:38 by abarnett          #+#    #+#             */
+/*   Updated: 2019/05/19 22:28:16 by abarnett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "alan_lib_launchers.h"
+#ifndef STRLEN_TESTS_H
+# define STRLEN_TESTS_H
 
-int	main(void)
-{
-	atoi_launcher();
-	strlen_launcher();
-	fail_launcher();
-}
+int	normal_string(void);
+int	empty_string(void);
+int	null_string(void);
+
+#endif

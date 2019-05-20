@@ -6,7 +6,7 @@
 #    By: abarnett <alanbarnett328@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/17 14:22:04 by abarnett          #+#    #+#              #
-#    Updated: 2019/05/19 19:51:30 by abarnett         ###   ########.fr        #
+#    Updated: 2019/05/19 22:28:26 by abarnett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIBFT :=	libft/libft.a
 # Base src directory
 SRC_DIR :=		.
 # Test directories
-TEST_DIRS :=	./atoi ./fail_tests
+TEST_DIRS :=	./atoi ./strlen ./fail_tests
 # Directories to include
 INCLUDE :=		../../includes ./libft/includes
 

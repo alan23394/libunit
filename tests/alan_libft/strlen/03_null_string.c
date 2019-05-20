@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   03_null_string.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarnett <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/18 15:10:30 by abarnett          #+#    #+#             */
-/*   Updated: 2019/05/19 22:29:38 by abarnett         ###   ########.fr       */
+/*   Created: 2019/05/19 22:27:12 by abarnett          #+#    #+#             */
+/*   Updated: 2019/05/19 22:29:13 by abarnett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "alan_lib_launchers.h"
+#include "ft_string.h"
+#include <string.h>
 
-int	main(void)
+static int	test_null(void)
 {
-	atoi_launcher();
-	strlen_launcher();
-	fail_launcher();
+	char	*str;
+
+	str = 0;
+	if (ft_strlen(str) == strlen(str))
+		return (1);
+	else
+		return (0);
+}
+
+int			null_string(void)
+{
+	if (test_null())
+		return (0);
+	else
+		return (1);
 }
