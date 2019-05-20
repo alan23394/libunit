@@ -1,3 +1,6 @@
 libunit.a
+libft.a
 *.o
 tags
+alan_libft_test
+kbelov_libft_test
