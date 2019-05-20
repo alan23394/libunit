@@ -6,7 +6,7 @@
 #    By: abarnett <alanbarnett328@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/17 14:22:04 by abarnett          #+#    #+#              #
-#    Updated: 2019/05/19 19:27:22 by abarnett         ###   ########.fr        #
+#    Updated: 2019/05/19 19:51:30 by abarnett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,10 +42,10 @@ TEST_OBJS :=	$(patsubst %.c,%.o,$(TEST_SRCS))
 
 .PHONY:		all test
 
-test:
-
 all: $(LIBFT) $(NAME)
 	@- ctags -R 2> /dev/null
+
+test:
 
 $(LIBFT):
 	@ make -C libft
