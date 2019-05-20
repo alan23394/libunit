@@ -6,7 +6,7 @@
 /*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 09:23:07 by exam              #+#    #+#             */
-/*   Updated: 2019/05/18 19:00:35 by abarnett         ###   ########.fr       */
+/*   Updated: 2019/05/19 22:42:18 by abarnett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int				is_empty(t_unit_test *tests)
 	return (0);
 }
 
-void				*pop_function(t_unit_test *tests)
+void			*pop_function(t_unit_test *tests)
 {
 	int		(*retptr)(void);
 	void	*rmptr;

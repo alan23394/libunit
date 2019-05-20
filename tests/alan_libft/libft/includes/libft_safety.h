@@ -6,7 +6,7 @@
 /*   By: alan <alanbarnett328@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/17 12:02:20 by alan              #+#    #+#             */
-/*   Updated: 2019/04/17 12:03:35 by alan             ###   ########.fr       */
+/*   Updated: 2019/05/19 22:39:05 by abarnett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 ** 	removes segfault on passed null string, returns 0 instead
 */
 
-#ifndef LIBFT_SAFETY
-# define LIBFT_SAFETY
+#ifndef LIBFT_SAFETY_H
+# define LIBFT_SAFETY_H
 
 # define LIBFT_SAFE
 
