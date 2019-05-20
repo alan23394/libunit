@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_launcher.c                                      :+:      :+:    :+:   */
+/*   03_positive.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarnett <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/18 14:24:20 by abarnett          #+#    #+#             */
-/*   Updated: 2019/05/19 18:36:14 by abarnett         ###   ########.fr       */
+/*   Created: 2019/05/19 04:24:57 by abarnett          #+#    #+#             */
+/*   Updated: 2019/05/19 04:25:53 by abarnett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
-#include "atoi_tests.h"
-#include "ft_put.h"
+#include "ft_utils.h"
 
-int		atoi_launcher(void)
+int		positive(void)
 {
-	t_unit_test	*tests;
-
-	tests = init();
-	ft_putstr("ATOI:\n");
-	load_test(tests, "Int Min", &int_min);
-	load_test(tests, "Int Overflow", &int_overflow);
-	load_test(tests, "Positive num", &positive);
-	return (launch_tests(tests));
+	if (ft_atoi("+15") == 15)
+		return (0);
+	else
+		return (-1);
 }
