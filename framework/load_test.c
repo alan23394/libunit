@@ -6,7 +6,7 @@
 /*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 09:23:07 by exam              #+#    #+#             */
-/*   Updated: 2019/05/18 17:48:02 by abarnett         ###   ########.fr       */
+/*   Updated: 2019/05/18 19:00:35 by abarnett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,19 +54,16 @@ void			load_test(t_unit_test *tests, const char *name,
 	}
 }
 
-/*
 int				is_empty(t_unit_test *tests)
 {
 	if (!tests || !tests->first)
 		return (1);
 	return (0);
 }
-*/
 
-/*
-void			*dequeue(t_unit_test *tests)
+void				*pop_function(t_unit_test *tests)
 {
-	void	*retptr;
+	int		(*retptr)(void);
 	void	*rmptr;
 
 	if (is_empty(tests))
@@ -75,10 +72,9 @@ void			*dequeue(t_unit_test *tests)
 	{
 		tests->last = 0;
 	}
-	retptr = tests->first->content;
+	retptr = tests->first->func;
 	rmptr = tests->first;
 	tests->first = tests->first->next;
-	free(rmptr);
+	ft_memdel(&rmptr);
 	return (retptr);
 }
-*/

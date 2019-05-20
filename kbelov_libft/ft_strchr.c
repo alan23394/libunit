@@ -1,14 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   atoi_tests.h                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarnett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kbelov <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/18 16:33:15 by abarnett          #+#    #+#             */
-/*   Updated: 2019/05/18 18:28:16 by abarnett         ###   ########.fr       */
+/*   Created: 2019/02/15 17:14:42 by kbelov            #+#    #+#             */
+/*   Updated: 2019/02/21 13:00:13 by kbelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	int_min(void);
-int	int_overflow(void);
+#include <string.h>
+
+char	*ft_strchr(const char *s, int c)
+{
+	char	*str;
+
+	str = (char *)s;
+	while (*str != (char)c)
+	{
+		if (*str == '\0')
+			return (NULL);
+		str++;
+	}
+	return (str);
+}

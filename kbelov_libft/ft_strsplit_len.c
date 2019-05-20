@@ -1,14 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   atoi_tests.h                                       :+:      :+:    :+:   */
+/*   ft_strsplit_len.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarnett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kbelov <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/18 16:33:15 by abarnett          #+#    #+#             */
-/*   Updated: 2019/05/18 18:28:16 by abarnett         ###   ########.fr       */
+/*   Created: 2019/02/20 20:09:05 by kbelov            #+#    #+#             */
+/*   Updated: 2019/02/25 23:33:25 by kbelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	int_min(void);
-int	int_overflow(void);
+#include <string.h>
+
+size_t		ft_strsplit_len(char const *s, char c)
+{
+	size_t		len;
+
+	len = 1;
+	while (*s)
+	{
+		if (*s != c)
+			len++;
+		s++;
+	}
+	return (len);
+}

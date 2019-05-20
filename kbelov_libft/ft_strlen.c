@@ -1,14 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   atoi_tests.h                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarnett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kbelov <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/18 16:33:15 by abarnett          #+#    #+#             */
-/*   Updated: 2019/05/18 18:28:16 by abarnett         ###   ########.fr       */
+/*   Created: 2019/02/12 21:49:57 by kbelov            #+#    #+#             */
+/*   Updated: 2019/02/13 18:44:23 by kbelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	int_min(void);
-int	int_overflow(void);
+#include <string.h>
+
+size_t		ft_strlen(const char *s)
+{
+	size_t	len;
+
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
+}

@@ -1,14 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   atoi_tests.h                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarnett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kbelov <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/18 16:33:15 by abarnett          #+#    #+#             */
-/*   Updated: 2019/05/18 18:28:16 by abarnett         ###   ########.fr       */
+/*   Created: 2019/02/19 09:43:07 by kbelov            #+#    #+#             */
+/*   Updated: 2019/02/19 11:49:12 by kbelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	int_min(void);
-int	int_overflow(void);
+#include <unistd.h>
+
+void		ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}

@@ -6,7 +6,7 @@
 /*   By: kbelov <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/18 14:50:31 by kbelov            #+#    #+#             */
-/*   Updated: 2019/05/18 17:49:49 by abarnett         ###   ########.fr       */
+/*   Updated: 2019/05/18 18:59:06 by abarnett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct		s_unit_test
 }					t_unit_test;
 
 t_unit_test			*init(void);
+void				*pop_function(t_unit_test *tests);
 void				load_test(t_unit_test *tests, const char *name,
 						int (*func)(void));
 int					launch_tests(t_unit_test *tests);

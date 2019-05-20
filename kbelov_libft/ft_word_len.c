@@ -1,14 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   atoi_tests.h                                       :+:      :+:    :+:   */
+/*   ft_word_len.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarnett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kbelov <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/18 16:33:15 by abarnett          #+#    #+#             */
-/*   Updated: 2019/05/18 18:28:16 by abarnett         ###   ########.fr       */
+/*   Created: 2019/02/25 00:48:22 by kbelov            #+#    #+#             */
+/*   Updated: 2019/02/28 16:45:45 by kbelov           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	int_min(void);
-int	int_overflow(void);
+#include <string.h>
+
+size_t		ft_word_len(char const *s, size_t start, char c)
+{
+	size_t		len;
+
+	len = 0;
+	while (s[start] != c && s[start])
+	{
+		len++;
+		start++;
+	}
+	return (len);
+}
