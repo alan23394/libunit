@@ -6,15 +6,15 @@
 /*   By: kbelov <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/18 18:32:27 by kbelov            #+#    #+#             */
-/*   Updated: 2019/05/19 00:13:02 by kbelov           ###   ########.fr       */
+/*   Updated: 2019/05/19 18:19:08 by abarnett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "libft.h"
 
 int		space_only(void)
 {
-	if (ft_atoi(" ") == atoi(" ")
+	if (ft_atoi(" ") == atoi(" "))
 		return (0);
 	else
 		return (-1);

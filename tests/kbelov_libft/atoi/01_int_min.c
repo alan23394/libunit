@@ -6,11 +6,11 @@
 /*   By: kbelov <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/18 18:32:27 by kbelov            #+#    #+#             */
-/*   Updated: 2019/05/18 19:30:50 by kbelov           ###   ########.fr       */
+/*   Updated: 2019/05/19 18:11:11 by abarnett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "libft.h"
 
 int		int_min(void)
 {

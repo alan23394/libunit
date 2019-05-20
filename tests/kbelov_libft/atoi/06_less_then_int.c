@@ -6,15 +6,15 @@
 /*   By: kbelov <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/18 18:32:27 by kbelov            #+#    #+#             */
-/*   Updated: 2019/05/18 20:20:52 by kbelov           ###   ########.fr       */
+/*   Updated: 2019/05/19 18:17:16 by abarnett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "libft.h"
 
 int		less_then_int(void)
 {
-	if (ft_atoi("-2147483649") == atoi(-2147483649))
+	if (ft_atoi("-2147483649") == atoi("-2147483649"))
 		return (0);
 	else
 		return (-1);

@@ -6,15 +6,15 @@
 /*   By: kbelov <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/18 18:32:27 by kbelov            #+#    #+#             */
-/*   Updated: 2019/05/18 23:22:15 by kbelov           ###   ########.fr       */
+/*   Updated: 2019/05/19 18:18:09 by abarnett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "libft.h"
 
 int		int_double_neg(void)
 {
-	if (ft_atoi("--100") == atoi("--100")
+	if (ft_atoi("--100") == atoi("--100"))
 		return (0);
 	else
 		return (-1);

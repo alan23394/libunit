@@ -6,11 +6,11 @@
 /*   By: kbelov <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/18 18:41:15 by kbelov            #+#    #+#             */
-/*   Updated: 2019/05/18 23:07:22 by kbelov           ###   ########.fr       */
+/*   Updated: 2019/05/19 18:12:00 by abarnett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "libft.h"
 
 int		int_positive_one(void)
 {

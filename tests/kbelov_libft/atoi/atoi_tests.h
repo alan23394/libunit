@@ -6,7 +6,7 @@
 /*   By: kbelov <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/18 18:33:30 by kbelov            #+#    #+#             */
-/*   Updated: 2019/05/19 00:30:37 by kbelov           ###   ########.fr       */
+/*   Updated: 2019/05/19 18:34:13 by abarnett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int		int_max(void);
 int		less_then_int(void);
 int		more_then_int(void);
 int		int_empty_string(void);
-int		int_space_pos(void);
-int		int_space_neg(void);
+int		int_space(void);
+int		int_space_after_neg(void);
 int		int_double_neg(void);
 int		int_double_pos(void);
 int		int_single_pos(void);

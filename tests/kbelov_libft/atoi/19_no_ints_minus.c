@@ -6,15 +6,15 @@
 /*   By: kbelov <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/18 18:32:27 by kbelov            #+#    #+#             */
-/*   Updated: 2019/05/18 23:49:54 by kbelov           ###   ########.fr       */
+/*   Updated: 2019/05/19 18:18:51 by abarnett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "libft.h"
 
 int		no_ints_minus(void)
 {
-	if (ft_atoi("-Hello") == atoi("-Hello")
+	if (ft_atoi("-Hello") == atoi("-Hello"))
 		return (0);
 	else
 		return (-1);
