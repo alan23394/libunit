@@ -6,56 +6,57 @@
 /*   By: abarnett <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/18 14:47:53 by abarnett          #+#    #+#             */
-/*   Updated: 2019/05/19 18:02:21 by abarnett         ###   ########.fr       */
+/*   Updated: 2019/05/19 23:10:48 by abarnett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
 #include "colors.h"
+#include "error.h"
 #include "ft_mem.h"
 #include "ft_printf.h"
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/wait.h>
 
-int		print_error(const char *func, const char *error)
+int		handle_signal(int signal)
 {
-	ft_printfd(2, "libunit: %s: %s\n", func, error);
-	return (1);
+	if (signal == 10)
+		ft_printf("[%sBUSE%s]\n", COLOR_BUSE, COLOR_NORM);
+	else if (signal == 11)
+		ft_printf("[%sSEGV%s]\n", COLOR_SEGV, COLOR_NORM);
+	else
+		ft_printf("[%sUNK%s]\n", COLOR_UNK, COLOR_NORM);
+	return (0);
 }
 
-void	print_status(int status)
+int		handle_status(int status)
 {
-	int	exit_status;
-	int	signal;
-
-	exit_status = 0;
-	signal = 0;
 	if (WIFEXITED(status))
 	{
-		exit_status = WEXITSTATUS(status);
-		if (exit_status == 0)
+		if (WEXITSTATUS(status))
+		{
 			ft_printf("[%sOK%s]\n", COLOR_OK, COLOR_NORM);
+			return (1);
+		}
 		else
+		{
 			ft_printf("[%sKO%s]\n", COLOR_KO, COLOR_NORM);
+			return (0);
+		}
 	}
 	else if (WIFSIGNALED(status))
 	{
-		signal = WTERMSIG(status);
-		if (signal == 10)
-			ft_printf("[%sBUSE%s]\n", COLOR_BUSE, COLOR_NORM);
-		else if (signal == 11)
-			ft_printf("[%sSEGV%s]\n", COLOR_SEGV, COLOR_NORM);
-		else
-			ft_printf("[%sUNK%s]\n", COLOR_UNK, COLOR_NORM);
+		return (handle_signal(WTERMSIG(status)));
 	}
 	else
 	{
 		ft_printf("[%sUNK%s]\n", COLOR_UNK, COLOR_NORM);
+		return (0);
 	}
 }
 
-void	launch_function(int (*func)(void))
+int		launch_function(int (*func)(void))
 {
 	pid_t	new_pid;
 	int		status;
@@ -74,23 +75,33 @@ void	launch_function(int (*func)(void))
 	else
 	{
 		wait(&status);
-		print_status(status);
+		status = handle_status(status);
+		return (status);
 	}
+	return (0);
 }
 
 int		launch_tests(t_unit_test *tests)
 {
 	int		(*function)(void);
+	int		total;
+	int		passes;
 
+	total = 0;
+	passes = 0;
 	if (!tests)
 		return (0);
 	while (tests->first)
 	{
 		ft_printf("  > %s : ", tests->first->name);
 		function = pop_function(tests);
-		launch_function(function);
+		passes += launch_function(function);
+		++total;
 	}
-
 	ft_memdel((void **)&tests);
-	return (0);
+	ft_printf(" %d/%d tests passed\n\n", passes, total);
+	if (total != passes)
+		return (-1);
+	else
+		return (0);
 }
