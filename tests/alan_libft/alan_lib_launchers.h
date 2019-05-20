@@ -6,8 +6,9 @@
 /*   By: abarnett <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/18 15:11:39 by abarnett          #+#    #+#             */
-/*   Updated: 2019/05/18 15:13:26 by abarnett         ###   ########.fr       */
+/*   Updated: 2019/05/19 19:27:09 by abarnett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		atoi_launcher(void);
+int		fail_launcher(void);
