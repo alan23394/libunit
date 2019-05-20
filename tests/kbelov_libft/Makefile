@@ -6,7 +6,7 @@
 #    By: abarnett <alanbarnett328@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/17 14:22:04 by abarnett          #+#    #+#              #
-#    Updated: 2019/05/19 17:53:51 by kbelov           ###   ########.fr        #
+#    Updated: 2019/05/19 18:16:29 by abarnett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC_DIR :=		.
 # Test directories
 TEST_DIRS :=	./atoi
 # Directories to include
-INCLUDE :=		../../includes ./libft/includes
+INCLUDE :=		../../includes ./libft
 
 # Add a -I on each INCLUDE
 INCLUDE :=		$(foreach DIR, $(INCLUDE), -I$(DIR))
