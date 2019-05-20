@@ -6,7 +6,7 @@
 #    By: abarnett <alanbarnett328@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/17 14:22:04 by abarnett          #+#    #+#              #
-#    Updated: 2019/05/18 16:46:07 by abarnett         ###   ########.fr        #
+#    Updated: 2019/05/19 19:27:22 by abarnett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIBFT :=	libft/libft.a
 # Base src directory
 SRC_DIR :=		.
 # Test directories
-TEST_DIRS :=	./atoi
+TEST_DIRS :=	./atoi ./fail_tests
 # Directories to include
 INCLUDE :=		../../includes ./libft/includes
 
@@ -36,10 +36,13 @@ LDFLAGS +=		-L./libft -lft -L../../ -lunit
 # Don't change below here
 # **************************************************************************** #
 
-C_OBJS :=	$(patsubst %.c,%.o,$(wildcard $(SRC_DIR)/*.c))
-C_OBJS +=	$(patsubst %.c,%.o,$(wildcard $(TEST_DIRS)/*.c))
+C_OBJS :=		$(patsubst %.c,%.o,$(wildcard $(SRC_DIR)/*.c))
+TEST_SRCS :=	$(foreach DIR,$(TEST_DIRS),$(wildcard $(DIR)/*.c))
+TEST_OBJS :=	$(patsubst %.c,%.o,$(TEST_SRCS))
 
-.PHONY:		all
+.PHONY:		all test
+
+test:
 
 all: $(LIBFT) $(NAME)
 	@- ctags -R 2> /dev/null
@@ -47,8 +50,8 @@ all: $(LIBFT) $(NAME)
 $(LIBFT):
 	@ make -C libft
 
-$(NAME): $(C_OBJS)
-	gcc $(CFLAGS) -o $(NAME) $(C_OBJS) $(LDFLAGS)
+$(NAME): $(C_OBJS) $(TEST_OBJS)
+	gcc $(CFLAGS) -o $(NAME) $(C_OBJS) $(TEST_OBJS) $(LDFLAGS)
 
 clean:
 	@ $(RM) $(OBJS)
