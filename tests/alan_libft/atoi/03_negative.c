@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   atoi_tests.h                                       :+:      :+:    :+:   */
+/*   03_negative.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarnett <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/18 16:33:15 by abarnett          #+#    #+#             */
-/*   Updated: 2019/05/19 22:40:27 by abarnett         ###   ########.fr       */
+/*   Created: 2019/05/19 22:16:08 by abarnett          #+#    #+#             */
+/*   Updated: 2019/05/19 22:16:59 by abarnett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ATOI_TESTS_H
-# define ATOI_TESTS_H
+#include "ft_utils.h"
 
-int	int_min(void);
-int	int_overflow(void);
-int	positive(void);
-int	negative(void);
-
-#endif
+int	negative(void)
+{
+	if (ft_atoi("-15") == -15)
+		return (0);
+	else
+		return (1);
+}
