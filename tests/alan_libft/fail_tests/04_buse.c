@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   04_buse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarnett <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/18 15:10:30 by abarnett          #+#    #+#             */
-/*   Updated: 2019/05/19 19:27:09 by abarnett         ###   ########.fr       */
+/*   Created: 2019/05/19 18:40:28 by abarnett          #+#    #+#             */
+/*   Updated: 2019/05/19 18:43:02 by abarnett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "alan_lib_launchers.h"
-
-int	main(void)
+int	buse_test(void)
 {
-	atoi_launcher();
-	fail_launcher();
+	int	*num;
+	int	real_num;
+
+	real_num = 10;
+	num = &real_num;
+	++num;
+	*num = 12;
+	if (*num == 12)
+		return (0);
+	else
+		return (1);
 }

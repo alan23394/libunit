@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   02_segv.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarnett <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/18 15:10:30 by abarnett          #+#    #+#             */
-/*   Updated: 2019/05/19 19:27:09 by abarnett         ###   ########.fr       */
+/*   Created: 2019/05/19 18:38:56 by abarnett          #+#    #+#             */
+/*   Updated: 2019/05/19 18:41:09 by abarnett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "alan_lib_launchers.h"
-
-int	main(void)
+int	segv_test(void)
 {
-	atoi_launcher();
-	fail_launcher();
+	char	*str;
+
+	str = 0;
+	if (*str == '\0')
+		return (0);
+	else
+		return (1);
 }
