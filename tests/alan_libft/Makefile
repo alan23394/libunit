@@ -6,14 +6,14 @@
 #    By: abarnett <alanbarnett328@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/17 14:22:04 by abarnett          #+#    #+#              #
-#    Updated: 2019/05/19 22:28:26 by abarnett         ###   ########.fr        #
+#    Updated: 2019/05/19 23:35:51 by abarnett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # **************************************************************************** #
 # Configure options
 
-# Name of output library
+# Name of test file
 NAME :=		alan_libft_test
 # Name of libft
 LIBFT :=	libft/libft.a
@@ -42,15 +42,16 @@ TEST_OBJS :=	$(patsubst %.c,%.o,$(TEST_SRCS))
 
 .PHONY:		all test
 
-all: $(LIBFT) $(NAME)
+all: $(NAME)
 	@- ctags -R 2> /dev/null
 
-test:
+test: $(NAME)
+	./$(NAME)
 
 $(LIBFT):
 	@ make -C libft
 
-$(NAME): $(C_OBJS) $(TEST_OBJS)
+$(NAME): $(LIBFT) $(C_OBJS) $(TEST_OBJS)
 	gcc $(CFLAGS) -o $(NAME) $(C_OBJS) $(TEST_OBJS) $(LDFLAGS)
 
 clean:

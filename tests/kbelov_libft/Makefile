@@ -6,14 +6,14 @@
 #    By: abarnett <alanbarnett328@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/17 14:22:04 by abarnett          #+#    #+#              #
-#    Updated: 2019/05/19 18:16:29 by abarnett         ###   ########.fr        #
+#    Updated: 2019/05/19 23:33:08 by abarnett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # **************************************************************************** #
 # Configure options
 
-# Name of output library
+# Name of test file
 NAME :=		kbelov_libft_test
 # Name of libft
 LIBFT :=	libft/libft.a
@@ -21,7 +21,7 @@ LIBFT :=	libft/libft.a
 # Base src directory
 SRC_DIR :=		.
 # Test directories
-TEST_DIRS :=	./atoi
+TEST_DIRS :=	./atoi ./strlen
 # Directories to include
 INCLUDE :=		../../includes ./libft
 
@@ -36,19 +36,23 @@ LDFLAGS +=		-L./libft -lft -L../../ -lunit
 # Don't change below here
 # **************************************************************************** #
 
-C_OBJS :=	$(patsubst %.c,%.o,$(wildcard $(SRC_DIR)/*.c))
-C_OBJS +=	$(patsubst %.c,%.o,$(wildcard $(TEST_DIRS)/*.c))
+C_OBJS :=		$(patsubst %.c,%.o,$(wildcard $(SRC_DIR)/*.c))
+TEST_SRCS :=	$(foreach DIR,$(TEST_DIRS),$(wildcard $(DIR)/*.c))
+TEST_OBJS :=	$(patsubst %.c,%.o,$(TEST_SRCS))
 
-.PHONY:		all
+.PHONY:		all test
 
 all: $(LIBFT) $(NAME)
 	@- ctags -R 2> /dev/null
 
+test: $(NAME)
+	./$(NAME)
+
 $(LIBFT):
 	@ make -C libft
 
-$(NAME): $(C_OBJS)
-	gcc $(CFLAGS) -o $(NAME) $(C_OBJS) $(LDFLAGS)
+$(NAME): $(C_OBJS) $(TEST_OBJS)
+	gcc $(CFLAGS) -o $(NAME) $(C_OBJS) $(TEST_OBJS) $(LDFLAGS)
 
 clean:
 	@ $(RM) $(OBJS)
