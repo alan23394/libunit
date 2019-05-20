@@ -6,7 +6,7 @@
 #    By: abarnett <alanbarnett328@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/17 14:22:04 by abarnett          #+#    #+#              #
-#    Updated: 2019/05/18 16:44:07 by abarnett         ###   ########.fr        #
+#    Updated: 2019/05/19 18:29:14 by abarnett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,10 @@
 
 # Name of output library
 NAME :=		libunit.a
+# Libft directory
+LIBDIR :=	libft
 # Name of libft
-LIBFT :=	libft/libft.a
+LIBFT :=	$(LIBDIR)/libft.a
 
 # Base src directory
 SRC_DIR :=		./framework
@@ -34,6 +36,7 @@ CFLAGS +=		-g -Wall -Wextra -Werror $(INCLUDE)
 # **************************************************************************** #
 
 C_OBJS :=	$(patsubst %.c,%.o,$(wildcard $(SRC_DIR)/*.c))
+L_OBJS :=	$(shell find $(LIBDIR) -name "*.o")
 
 .PHONY:		all
 
@@ -44,7 +47,7 @@ $(LIBFT):
 	@ make -C libft
 
 $(NAME): $(C_OBJS)
-	ar rc $(NAME) $(C_OBJS)
+	ar rc $(NAME) $(C_OBJS) $(L_OBJS)
 	ranlib $(NAME)
 
 clean:
