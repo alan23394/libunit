@@ -6,16 +6,16 @@
 /*   By: kbelov <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/18 14:30:08 by kbelov            #+#    #+#             */
-/*   Updated: 2019/05/19 23:02:06 by kbelov           ###   ########.fr       */
+/*   Updated: 2019/05/19 23:22:46 by abarnett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int empty_string(void)
+int	empty_string(void)
 {
 	if (ft_strlen("") == strlen(""))
-		return(0);
+		return (0);
 	else
-		return(-1);
+		return (-1);
 }
