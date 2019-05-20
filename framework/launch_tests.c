@@ -6,7 +6,7 @@
 /*   By: abarnett <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/18 14:47:53 by abarnett          #+#    #+#             */
-/*   Updated: 2019/05/19 23:10:48 by abarnett         ###   ########.fr       */
+/*   Updated: 2019/05/19 23:36:59 by abarnett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		handle_status(int status)
 {
 	if (WIFEXITED(status))
 	{
-		if (WEXITSTATUS(status))
+		if (WEXITSTATUS(status) == 0)
 		{
 			ft_printf("[%sOK%s]\n", COLOR_OK, COLOR_NORM);
 			return (1);
