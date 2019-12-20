@@ -6,11 +6,12 @@
 /*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 09:23:07 by exam              #+#    #+#             */
-/*   Updated: 2019/05/19 22:42:18 by abarnett         ###   ########.fr       */
+/*   Updated: 2019/12/19 22:09:51 by alan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
+#include "ft_printf.h"
 #include "ft_mem.h"
 
 struct s_node	*init_node(const char *name, int (*func)(void))
@@ -24,10 +25,11 @@ struct s_node	*init_node(const char *name, int (*func)(void))
 	return (new_node);
 }
 
-t_unit_test		*init(void)
+t_unit_test		*init_tests(const char *test_name)
 {
 	t_unit_test	*new_tests;
 
+	ft_printf("%s:\n", test_name);
 	new_tests = (t_unit_test *)ft_memalloc(sizeof(t_unit_test));
 	new_tests->first = 0;
 	new_tests->last = 0;
