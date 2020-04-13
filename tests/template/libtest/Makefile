@@ -6,7 +6,7 @@
 #    By: alan <alanbarnett328@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/20 01:23:42 by alan              #+#    #+#              #
-#    Updated: 2019/12/20 01:46:29 by alan             ###   ########.fr        #
+#    Updated: 2019/12/27 22:23:39 by alan             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,8 @@ $(NAME):
 	ranlib $(NAME)
 
 clean:
-	rm -f $(NAME)
 
 fclean: clean
+	rm -f $(NAME)
 
 re: fclean all

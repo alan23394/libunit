@@ -6,7 +6,7 @@
 #    By: alan <alanbarnett328@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/16 12:07:17 by alan              #+#    #+#              #
-#    Updated: 2019/12/20 02:18:57 by alan             ###   ########.fr        #
+#    Updated: 2019/12/27 22:58:17 by alan             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,10 +59,10 @@ test: $(NAME)
 	./$(NAME)
 
 tags: $(C_SRCS) $(TEST_SRCS)
-	- ctags -R 2> /dev/null
+	- ctags -R
 
 $(NAME): $(LIB_NAME) $(C_OBJS) $(TEST_OBJS)
-	gcc $(CFLAGS) -o $(NAME) $(C_OBJS) $(TEST_OBJS) $(LDFLAGS)
+	$(CC) $(CFLAGS) -o $(NAME) $(C_OBJS) $(TEST_OBJS) $(LDFLAGS)
 
 $(LIB_NAME):
 	$(MAKE) -C $(LIB_DIR)
@@ -71,8 +71,8 @@ clean:
 	$(RM) $(C_OBJS) $(TEST_OBJS) tags
 	$(MAKE) -C $(LIB_DIR) clean
 
-fclean:
-	$(RM) $(NAME) $(C_OBJS) $(TEST_OBJS) tags
+fclean: clean
+	$(RM) $(NAME)
 	$(MAKE) -C $(LIB_DIR) fclean
 
 re: fclean all
