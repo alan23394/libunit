@@ -6,7 +6,7 @@
 /*   By: kbelov <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/18 14:50:31 by kbelov            #+#    #+#             */
-/*   Updated: 2019/12/20 01:19:58 by alan             ###   ########.fr       */
+/*   Updated: 2020/04/13 06:47:56 by alan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ void				*pop_function(t_unit_test *tests);
 void				load_test(t_unit_test *tests, const char *name,
 						int (*func)(void));
 int					launch_tests(t_unit_test *tests);
+int					launch_tests_debug(t_unit_test *tests);
 
 #endif

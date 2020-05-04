@@ -6,7 +6,7 @@
 /*   By: abarnett <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/18 14:47:53 by abarnett          #+#    #+#             */
-/*   Updated: 2019/05/19 23:36:59 by abarnett         ###   ########.fr       */
+/*   Updated: 2020/04/13 06:47:31 by alan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,40 @@ int		launch_tests(t_unit_test *tests)
 		ft_printf("  > %s : ", tests->first->name);
 		function = pop_function(tests);
 		passes += launch_function(function);
+		++total;
+	}
+	ft_memdel((void **)&tests);
+	ft_printf(" %d/%d tests passed\n\n", passes, total);
+	if (total != passes)
+		return (-1);
+	else
+		return (0);
+}
+
+/*
+** Same as launch_tests, but it doesn't run the function in a fork.
+** Useful for debugging, when you want the code running on the same process.
+*/
+
+int		launch_tests_debug(t_unit_test *tests)
+{
+	int		(*function)(void);
+	int		total;
+	int		passes;
+	int		ret;
+
+	total = 0;
+	passes = 0;
+	if (!tests)
+		return (0);
+	while (tests->first)
+	{
+		ft_printf("  > %s : ", tests->first->name);
+		function = pop_function(tests);
+		ret = function();
+		if (ret != 0)
+			ret = 256;
+		passes += handle_status(ret);
 		++total;
 	}
 	ft_memdel((void **)&tests);
